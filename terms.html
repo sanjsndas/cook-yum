@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - CookYum</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --yummy-yellow: #FFEB3B;
+            --tomato-red: #F44336;
+            --soft-cream: #FFFDE7;
+            --slate-gray: #455A64;
+            --mint-green: #66BB6A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--soft-cream);
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--tomato-red);
+        }
+        
+        .logo span {
+            color: var(--slate-gray);
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--slate-gray);
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: var(--yummy-yellow);
+            color: var(--slate-gray);
+        }
+        
+        /* Terms Content */
+        .terms-container {
+            background-color: white;
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .terms-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .terms-header h1 {
+            font-size: 36px;
+            color: var(--tomato-red);
+            margin-bottom: 20px;
+        }
+        
+        .terms-header p {
+            font-size: 18px;
+            color: var(--slate-gray);
+        }
+        
+        .terms-content {
+            margin-bottom: 40px;
+        }
+        
+        .terms-section {
+            margin-bottom: 30px;
+        }
+        
+        .terms-section h2 {
+            font-size: 24px;
+            color: var(--tomato-red);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--yummy-yellow);
+        }
+        
+        .terms-section h3 {
+            font-size: 20px;
+            color: var(--slate-gray);
+            margin: 25px 0 15px;
+        }
+        
+        .terms-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .terms-section ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .terms-section ul li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .terms-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .terms-section table, .terms-section th, .terms-section td {
+            border: 1px solid #ddd;
+        }
+        
+        .terms-section th, .terms-section td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .terms-section th {
+            background-color: var(--soft-cream);
+        }
+        
+        .terms-section tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--slate-gray);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--yummy-yellow);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--yummy-yellow);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .terms-container {
+                padding: 20px;
+            }
+            
+            .terms-header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Cook<span>Yum</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="terms-container">
+            <div class="terms-header">
+                <h1>Terms of Service</h1>
+                <p>Last updated: June 01, 2023</p>
+            </div>
+            
+            <div class="terms-content">
+                <div class="terms-section">
+                    <h2>1. Introduction</h2>
+                    <p>Welcome to CookYum ("Company," "we," "our," "us")! These Terms of Service ("Terms," "Terms of Service") govern your use of our website located at www.cookyum.com (together or individually "Service") operated by CookYum.</p>
+                    <p>Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our web pages. Your agreement with us includes these Terms and our Privacy Policy ("Agreements"). You acknowledge that you have read and understood Agreements, and agree to be bound of them.</p>
+                    <p>If you do not agree with (or cannot comply with) Agreements, then you may not use the Service, but please let us know by emailing at legal@cookyum.com so we can try to find a solution. These Terms apply to all visitors, users and others who wish to access or use Service.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>2. Accounts</h2>
+                    <p>When you create an account with us, you guarantee that you are above the age of 18, and that the information you provide us is accurate, complete, and current at all times. Inaccurate, incomplete, or obsolete information may result in the immediate termination of your account on Service.</p>
+                    <p>You are responsible for maintaining the confidentiality of your account and password, including but not limited to the restriction of access to your computer and/or account. You agree to accept responsibility for any and all activities or actions that occur under your account and/or password, whether your password is with our Service or a third-party service. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.</p>
+                    <p>You may not use as a username the name of another person or entity or that is not lawfully available for use, a name or trademark that is subject to any rights of another person or entity other than you, without appropriate authorization. You may not use as a username any name that is offensive, vulgar or obscene.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>3. Content</h2>
+                    <h3>Our Content</h3>
+                    <p>Service and its original content (excluding Content provided by users), features and functionality are and will remain the exclusive property of CookYum and its licensors. Service is protected by copyright, trademark, and other laws of both the United States and foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of CookYum.</p>
+                    
+                    <h3>Your Content</h3>
+                    <p>You may submit content to the Service, including but not limited to recipes, comments, photos, and reviews ("User Content"). You retain all rights to the User Content you submit, post or display on or through the Service. By submitting User Content, you grant us a non-exclusive, worldwide, royalty-free, sublicensable, and transferable license to use, reproduce, distribute, prepare derivative works of, display, and perform the User Content in connection with the Service and our business.</p>
+                    <p>You represent and warrant that: (i) the User Content is yours (you own it) or you have the right to use it and grant us the rights and license as provided in these Terms, and (ii) the posting of your User Content on or through the Service does not violate the privacy rights, publicity rights, copyrights, contract rights or any other rights of any person or entity.</p>
+                    <p>We reserve the right to remove any User Content from the Service at any time without notice. We may, but have no obligation to, monitor, edit or remove User Content that we determine in our sole discretion to be unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable or violates any party's intellectual property or these Terms.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>4. Prohibited Uses</h2>
+                    <p>You may use Service only for lawful purposes and in accordance with Terms. You agree not to use Service:</p>
+                    <ul>
+                        <li>In any way that violates any applicable national or international law or regulation</li>
+                        <li>For the purpose of exploiting, harming, or attempting to exploit or harm minors in any way by exposing them to inappropriate content or otherwise</li>
+                        <li>To transmit, or procure the sending of, any advertising or promotional material, including any "junk mail," "chain letter," "spam," or any other similar solicitation</li>
+                        <li>To impersonate or attempt to impersonate Company, a Company employee, another user, or any other person or entity</li>
+                        <li>In any way that infringes upon the rights of others, or in any way is illegal, threatening, fraudulent, or harmful, or in connection with any unlawful, illegal, fraudulent, or harmful purpose or activity</li>
+                        <li>To engage in any other conduct that restricts or inhibits anyone's use or enjoyment of Service, or which, as determined by us, may harm or offend Company or users of Service or expose them to liability</li>
+                    </ul>
+                    <p>Additionally, you agree not to:</p>
+                    <ul>
+                        <li>Use Service in any manner that could disable, overburden, damage, or impair Service or interfere with any other party's use of Service, including their ability to engage in real time activities through Service</li>
+                        <li>Use any robot, spider, or other automatic device, process, or means to access Service for any purpose, including monitoring or copying any of the material on Service</li>
+                        <li>Use any manual process to monitor or copy any of the material on Service or for any other unauthorized purpose without our prior written consent</li>
+                        <li>Use any device, software, or routine that interferes with the proper working of Service</li>
+                        <li>Introduce any viruses, trojan horses, worms, logic bombs, or other material which is malicious or technologically harmful</li>
+                        <li>Attempt to gain unauthorized access to, interfere with, damage, or disrupt any parts of Service, the server on which Service is stored, or any server, computer, or database connected to Service</li>
+                        <li>Attack Service via a denial-of-service attack or a distributed denial-of-service attack</li>
+                        <li>Take any action that may damage or falsify Company rating</li>
+                        <li>Otherwise attempt to interfere with the proper working of Service</li>
+                    </ul>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>5. Intellectual Property</h2>
+                    <p>Service and its original content, features and functionality are and will remain the exclusive property of CookYum and its licensors. Service is protected by copyright, trademark, and other laws of both the United States and foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of CookYum.</p>
+                    <p>All recipes, photographs, videos, and other content created by CookYum are protected by copyright and may not be reproduced, distributed, displayed, or used to create derivative works without our express written permission.</p>
+                    <p>You may print or download one copy of a reasonable number of pages of the Website for your own personal, non-commercial use and not for further reproduction, publication or distribution.</p>
+                    <p>If we provide desktop, mobile or other applications for download, you may download a single copy to your computer or mobile device solely for your own personal, non-commercial use, provided you agree to be bound by our end user license agreement for such applications.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>6. Copyright Policy</h2>
+                    <p>We respect the intellectual property rights of others. It is our policy to respond to any claim that Content posted on Service infringes on the copyright or other intellectual property rights ("Infringement") of any person or entity.</p>
+                    <p>If you are a copyright owner, or authorized on behalf of one, and you believe that the copyrighted work has been copied in a way that constitutes copyright infringement, please submit your claim via email to legal@cookyum.com, with the subject line: "Copyright Infringement" and include in your claim a detailed description of the alleged Infringement as detailed below, under "DMCA Notice and Procedure for Copyright Infringement Claims".</p>
+                    <p>You may be held accountable for damages (including costs and attorneys' fees) for misrepresentation or bad-faith claims on the infringement of any Content found on and/or through Service on your copyright.</p>
+                    
+                    <h3>DMCA Notice and Procedure for Copyright Infringement Claims</h3>
+                    <p>You may submit a notification pursuant to the Digital Millennium Copyright Act (DMCA) by providing our Copyright Agent with the following information in writing (see 17 U.S.C 512(c)(3) for further detail):</p>
+                    <ul>
+                        <li>An electronic or physical signature of the person authorized to act on behalf of the owner of the copyright's interest</li>
+                        <li>A description of the copyrighted work that you claim has been infringed, including the URL (i.e., web page address) of the location where the copyrighted work exists or a copy of the copyrighted work</li>
+                        <li>Identification of the URL or other specific location on Service where the material that you claim is infringing is located</li>
+                        <li>Your address, telephone number, and email address</li>
+                        <li>A statement by you that you have a good faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law</li>
+                        <li>A statement by you, made under penalty of perjury, that the above information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner's behalf</li>
+                    </ul>
+                    <p>You can contact our Copyright Agent via email at legal@cookyum.com.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>7. Subscription and Payments</h2>
+                    <h3>Subscription Plans</h3>
+                    <p>CookYum offers certain premium features which require payment ("Subscription"). By selecting a Subscription you agree to pay CookYum the monthly or annual subscription fees indicated for that service. Payments will be charged on a pre-pay basis on the day you sign up for a Subscription and will cover the use of that service for a monthly or annual subscription period as indicated.</p>
+                    
+                    <h3>Automatic Renewal</h3>
+                    <p>Unless you notify us before the end of the applicable subscription period that you want to cancel a Subscription, your Subscription will automatically renew and you authorize us to collect the then-applicable annual or monthly subscription fee for such Subscription (as well as any taxes) using any credit card or other payment mechanism we have on record for you.</p>
+                    
+                    <h3>Fee Changes</h3>
+                    <p>CookYum, in its sole discretion and at any time, may modify the Subscription fees for the Subscriptions. Any Subscription fee change will become effective at the end of the then-current billing cycle. CookYum will provide you with reasonable prior notice of any change in Subscription fees to give you an opportunity to terminate your Subscription before such change becomes effective. Your continued use of the Service after the Subscription fee change comes into effect constitutes your agreement to pay the modified Subscription fee amount.</p>
+                    
+                    <h3>Refunds</h3>
+                    <p>Except when required by law, paid Subscription fees are non-refundable. Certain refund requests for Subscriptions may be considered by CookYum on a case-by-case basis and granted at the sole discretion of CookYum.</p>
+                    
+                    <h3>Cancellation</h3>
+                    <p>You may cancel your Subscription at any time by logging into your account or contacting us using the contact information provided below. Your cancellation will take effect at the end of the current paid term.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>8. Free Trial</h2>
+                    <p>CookYum may, at its sole discretion, offer a Subscription with a free trial for a limited period of time ("Free Trial").</p>
+                    <p>You may be required to enter your billing information in order to sign up for the Free Trial.</p>
+                    <p>If you do enter your billing information when signing up for a Free Trial, you will not be charged by CookYum until the Free Trial has expired. On the last day of the Free Trial period, unless you cancelled your Subscription, you will be automatically charged the applicable Subscription fees for the type of Subscription you have selected.</p>
+                    <p>At any time and without notice, CookYum reserves the right to (i) modify the terms and conditions of the Free Trial offer, or (ii) cancel such Free Trial offer.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>9. User Feedback</h2>
+                    <p>Any feedback, comments, ideas, improvements or suggestions ("Feedback") provided by you to CookYum with respect to the Service shall remain the sole and exclusive property of CookYum.</p>
+                    <p>CookYum shall be free to use, copy, modify, publish, or redistribute the Feedback for any purpose and in any way without any credit or any compensation to you.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>10. Links to Other Websites</h2>
+                    <p>Our Service may contain links to third party web sites or services that are not owned or controlled by CookYum.</p>
+                    <p>CookYum has no control over, and assumes no responsibility for the content, privacy policies, or practices of any third party web sites or services. We do not warrant the offerings of any of these entities/individuals or their websites.</p>
+                    <p>You acknowledge and agree that CookYum shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such third party web sites or services.</p>
+                    <p>We strongly advise you to read the terms and conditions and privacy policies of any third party web sites or services that you visit.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>11. Termination</h2>
+                    <p>We may terminate or suspend your account and bar access to Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of Terms.</p>
+                    <p>If you wish to terminate your account, you may simply discontinue using Service.</p>
+                    <p>All provisions of Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>12. Indemnification</h2>
+                    <p>You agree to defend, indemnify and hold harmless CookYum and its licensee and licensors, and their employees, contractors, agents, officers and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees), resulting from or arising out of:</p>
+                    <ul>
+                        <li>Your use and access of Service, by you or any person using your account and password</li>
+                        <li>A breach of these Terms</li>
+                        <li>Content posted on Service</li>
+                        <li>Your violation of any third-party right, including without limitation any copyright, property, or privacy right</li>
+                        <li>Any claim that your Content caused damage to a third party</li>
+                    </ul>
+                    <p>This defense and indemnification obligation will survive these Terms and your use of Service.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>13. Limitation of Liability</h2>
+                    <p>In no event shall CookYum, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:</p>
+                    <ul>
+                        <li>Your access to or use of or inability to access or use Service</li>
+                        <li>Any conduct or content of any third party on Service</li>
+                        <li>Any content obtained from Service</li>
+                        <li>Unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage, and even if a remedy set forth herein is found to have failed of its essential purpose.</li>
+                    </ul>
+                    <p>Some jurisdictions do not allow the exclusion of certain warranties or the exclusion or limitation of liability for consequential or incidental damages, so the limitations above may not apply to you.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>14. Disclaimer</h2>
+                    <p>Your use of Service is at your sole risk. Service is provided on an "AS IS" and "AS AVAILABLE" basis. Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance.</p>
+                    <p>CookYum its subsidiaries, affiliates, and its licensors do not warrant that:</p>
+                    <ul>
+                        <li>Service will function uninterrupted, secure or available at any particular time or location</li>
+                        <li>Any errors or defects will be corrected</li>
+                        <li>Service is free of viruses or other harmful components</li>
+                        <li>The results of using Service will meet your requirements</li>
+                    </ul>
+                    <p>CookYum does not warrant, endorse, guarantee, or assume responsibility for any product or service advertised or offered by a third party through the Service or any hyperlinked website or service, and CookYum will not be a party to or in any way monitor any transaction between you and third-party providers of products or services.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>15. Exclusions</h2>
+                    <p>Some jurisdictions do not allow the exclusion of certain warranties or the exclusion or limitation of liability for consequential or incidental damages, so the limitations above may not apply to you.</p>
+                    <p>CookYum makes no representations that the Service is appropriate or available for use in locations outside the United States. Those who access or use the Service from other jurisdictions do so at their own volition and are entirely responsible for compliance with all applicable United States and local laws and regulations, including but not limited to export and import regulations.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>16. Governing Law</h2>
+                    <p>These Terms shall be governed and construed in accordance with the laws of the State of California, United States, without regard to its conflict of law provisions.</p>
+                    <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service, and supersede and replace any prior agreements we might have had between us regarding Service.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>17. Changes to Terms</h2>
+                    <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+                    <p>By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you must stop using the Service.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h2>18. Contact Information</h2>
+                    <p>If you have any questions about these Terms, please contact us:</p>
+                    <ul>
+                        <li>By email: legal@cookyum.com</li>
+                        <li>By visiting this page on our website: www.cookyum.com/contact</li>
+                        <li>By mail: 123 Yum Street, Foodville, FC 12345, United States</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>CookYum</h3>
+                    <p>Making cooking fun, fast, and tasty for everyone. Quick recipes for busy people and beginners.</p>
+                    <div style="margin-top: 15px;">
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow);"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Recipe Categories</h3>
+                    <ul>
+                        <li><a href="#">5-Minute Recipes</a></li>
+                        <li><a href="#">10-Minute Meals</a></li>
+                        <li><a href="#">3-Ingredient Wonders</a></li>
+                        <li><a href="#">Easy Breakfasts</a></li>
+                        <li><a href="#">Quick Lunches</a></li>
+                        <li><a href="#">Simple Dinners</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Yum Street, Foodville, FC 12345</p>
+                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> (123) 456-7890</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> help@cookyum.com</p>
+                    
+                    <h3 style="margin-top: 20px;">Customer Satisfaction</h3>
+                    <p>Your satisfaction is our top priority. If you have any questions or feedback about our recipes or website, please don't hesitate to contact us.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 CookYum. All Rights Reserved. "Quick. Easy. Yummy." and "Good Food, No Fuss." are trademarks of CookYum.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

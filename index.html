@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookYum - Quick. Easy. Yummy.</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --yummy-yellow: #FFEB3B;
+            --tomato-red: #F44336;
+            --soft-cream: #FFFDE7;
+            --slate-gray: #455A64;
+            --mint-green: #66BB6A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--soft-cream);
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--tomato-red);
+        }
+        
+        .logo span {
+            color: var(--slate-gray);
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--slate-gray);
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: var(--yummy-yellow);
+            color: var(--slate-gray);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('p1.webp');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            border-radius: 10px;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--tomato-red);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: var(--yummy-yellow);
+            color: var(--slate-gray);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Recipe Sections */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--tomato-red);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--yummy-yellow);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .recipe-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .recipe-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .recipe-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .recipe-card:hover .recipe-img img {
+            transform: scale(1.1);
+        }
+        
+        .recipe-content {
+            padding: 20px;
+        }
+        
+        .recipe-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--slate-gray);
+        }
+        
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: var(--slate-gray);
+            font-size: 14px;
+        }
+        
+        .recipe-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .recipe-meta i {
+            color: var(--mint-green);
+        }
+        
+        .recipe-content p {
+            margin-bottom: 15px;
+            color: var(--slate-gray);
+        }
+        
+        .recipe-content a {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--yummy-yellow);
+            color: var(--slate-gray);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .recipe-content a:hover {
+            background-color: var(--tomato-red);
+            color: white;
+        }
+        
+        /* Video Reels Section */
+        .video-reels {
+            background-color: var(--slate-gray);
+            padding: 60px 0;
+            margin: 60px 0;
+            color: white;
+        }
+        
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .video-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .play-icon i {
+            color: var(--tomato-red);
+            font-size: 20px;
+            margin-left: 5px;
+        }
+        
+        .video-info {
+            padding: 15px;
+            color: var(--slate-gray);
+        }
+        
+        .video-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .video-info p {
+            font-size: 14px;
+            color: var(--slate-gray);
+        }
+        
+        /* Cooking Guides */
+        .guides-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .guide-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .guide-card h3 {
+            font-size: 24px;
+            color: var(--tomato-red);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .guide-card h3 i {
+            color: var(--mint-green);
+        }
+        
+        .guide-card p {
+            margin-bottom: 20px;
+        }
+        
+        .guide-card ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .guide-card a {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--mint-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .guide-card a:hover {
+            background-color: var(--tomato-red);
+        }
+        
+        /* Yum Challenge */
+        .challenge {
+            background-color: var(--yummy-yellow);
+            padding: 60px 0;
+            margin: 60px 0;
+            text-align: center;
+        }
+        
+        .challenge h2 {
+            font-size: 36px;
+            color: var(--tomato-red);
+            margin-bottom: 20px;
+        }
+        
+        .challenge p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--mint-green);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .newsletter h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            padding: 15px 25px;
+            background-color: var(--tomato-red);
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #e53935;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--slate-gray);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--yummy-yellow);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--yummy-yellow);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Disclaimer */
+        .disclaimer {
+            background-color: white;
+            padding: 40px;
+            margin: 60px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .disclaimer h2 {
+            color: var(--tomato-red);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .disclaimer p {
+            margin-bottom: 15px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 30px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Cook<span>Yum</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="hero">
+            <h2>Quick. Easy. Yummy.</h2>
+            <p>Good food doesn't have to be complicated. Discover simple recipes that deliver maximum flavor with minimal effort.</p>
+            <div class="cta-buttons">
+                <a href="#quick-recipes" class="btn btn-primary">See 10-Minute Recipes</a>
+                <a href="#yum-challenge" class="btn btn-secondary">Join the Yum Challenge</a>
+            </div>
+        </section>
+        
+        <section id="quick-recipes">
+            <div class="section-title">
+                <h2>Quick Yum Recipes</h2>
+            </div>
+            
+            <div class="recipes-grid">
+                <!-- Recipe 1 -->
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <img src="p2.webp" alt="Avocado Toast">
+                    </div>
+                    <div class="recipe-content">
+                        <h3>5-Minute Avocado Toast</h3>
+                        <div class="recipe-meta">
+                            <span><i class="fas fa-clock"></i> 5 mins</span>
+                            <span><i class="fas fa-utensils"></i> 3 ingredients</span>
+                        </div>
+                        <p>The perfect quick breakfast or snack that's both nutritious and delicious. Customize with your favorite toppings!</p>
+                        <a href="#">View Recipe</a>
+                    </div>
+                </div>
+                
+                <!-- Recipe 2 -->
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <img src="p3.avif" alt="Pasta Dish">
+                    </div>
+                    <div class="recipe-content">
+                        <h3>10-Minute Garlic Butter Pasta</h3>
+                        <div class="recipe-meta">
+                            <span><i class="fas fa-clock"></i> 10 mins</span>
+                            <span><i class="fas fa-utensils"></i> 5 ingredients</span>
+                        </div>
+                        <p>Creamy, garlicky, buttery pasta that comes together in the time it takes to boil the noodles. Restaurant quality at home!</p>
+                        <a href="#">View Recipe</a>
+                    </div>
+                </div>
+                
+                <!-- Recipe 3 -->
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <img src="p4.webp" alt="Smoothie Bowl">
+                    </div>
+                    <div class="recipe-content">
+                        <h3>3-Ingredient Banana Smoothie Bowl</h3>
+                        <div class="recipe-meta">
+                            <span><i class="fas fa-clock"></i> 5 mins</span>
+                            <span><i class="fas fa-utensils"></i> 3 ingredients</span>
+                        </div>
+                        <p>A thick, creamy smoothie bowl that's perfect for breakfast or a healthy snack. Top with your favorite fruits and nuts!</p>
+                        <a href="#">View Recipe</a>
+                    </div>
+                </div>
+                
+                <!-- Recipe 4 -->
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <img src="p5.webp" alt="Omelette">
+                    </div>
+                    <div class="recipe-content">
+                        <h3>Fluffy 3-Egg Omelette</h3>
+                        <div class="recipe-meta">
+                            <span><i class="fas fa-clock"></i> 7 mins</span>
+                            <span><i class="fas fa-utensils"></i> 4 ingredients</span>
+                        </div>
+                        <p>Learn the secret to making perfect, fluffy omelettes every time. Fill with cheese, veggies, or whatever you have on hand!</p>
+                        <a href="#">View Recipe</a>
+                    </div>
+                </div>
+                
+                <!-- Recipe 5 -->
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <img src="p6.webp" alt="Quesadilla">
+                    </div>
+                    <div class="recipe-content">
+                        <h3>Cheesy Microwave Quesadilla</h3>
+                        <div class="recipe-meta">
+                            <span><i class="fas fa-clock"></i> 3 mins</span>
+                            <span><i class="fas fa-utensils"></i> 3 ingredients</span>
+                        </div>
+                        <p>When you need something cheesy and satisfying in minutes, this microwave quesadilla delivers. Perfect for late-night snacks!</p>
+                        <a href="#">View Recipe</a>
+                    </div>
+                </div>
+                
+                <!-- Recipe 6 -->
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <img src="p7.webp" alt="Salad">
+                    </div>
+                    <div class="recipe-content">
+                        <h3>5-Minute Caprese Salad</h3>
+                        <div class="recipe-meta">
+                            <span><i class="fas fa-clock"></i> 5 mins</span>
+                            <span><i class="fas fa-utensils"></i> 4 ingredients</span>
+                        </div>
+                        <p>Fresh mozzarella, ripe tomatoes, and basil come together with a drizzle of balsamic for a classic Italian appetizer or light meal.</p>
+                        <a href="#">View Recipe</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="video-reels">
+            <div class="container">
+                <div class="section-title">
+                    <h2 style="color: white;">CookYum Video Reels</h2>
+                </div>
+                
+                <div class="video-container">
+                    <!-- Video 1 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="p8.webp" alt="Video Thumbnail">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>3-Ingredient Pancakes</h3>
+                            <p>Fluffy pancakes with just banana, eggs, and flour!</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 2 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="p9.webp" alt="Video Thumbnail">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Microwave Mug Cake</h3>
+                            <p>Chocolate cake ready in 90 seconds!</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 3 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="p10.webp" alt="Video Thumbnail">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Perfect Scrambled Eggs</h3>
+                            <p>Fluffy, creamy eggs in 3 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 4 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="p11.webp" alt="Video Thumbnail">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>5-Minute Donut Holes</h3>
+                            <p>Using just biscuit dough and cinnamon sugar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="cooking-guides">
+            <div class="section-title">
+                <h2>Zero-Stress Cooking Guides</h2>
+            </div>
+            
+            <div class="guides-container">
+                <!-- Guide 1 -->
+                <div class="guide-card">
+                    <h3><i class="fas fa-mortar-pestle"></i> Kitchen Essentials</h3>
+                    <p>You don't need a gourmet kitchen to cook great meals. Here's our list of must-have tools for beginners:</p>
+                    <ul>
+                        <li>1 good chef's knife</li>
+                        <li>Cutting board</li>
+                        <li>2-3 pots/pans</li>
+                        <li>Measuring cups/spoons</li>
+                        <li>Mixing bowls</li>
+                    </ul>
+                    <p>With just these basics, you can make 90% of the recipes on our site!</p>
+                    <a href="#">Read More</a>
+                </div>
+                
+                <!-- Guide 2 -->
+                <div class="guide-card">
+                    <h3><i class="fas fa-wallet"></i> Budget Cooking</h3>
+                    <p>Eating well doesn't have to be expensive. Our top tips for saving money while cooking delicious meals:</p>
+                    <ul>
+                        <li>Buy in bulk when possible</li>
+                        <li>Learn to love eggs, beans, and rice</li>
+                        <li>Shop seasonal produce</li>
+                        <li>Repurpose leftovers creatively</li>
+                        <li>Master a few staple recipes</li>
+                    </ul>
+                    <a href="#">Read More</a>
+                </div>
+                
+                <!-- Guide 3 -->
+                <div class="guide-card">
+                    <h3><i class="fas fa-exchange-alt"></i> Ingredient Swaps</h3>
+                    <p>Don't have exactly what a recipe calls for? Try these easy substitutions:</p>
+                    <ul>
+                        <li>Buttermilk → Milk + lemon juice</li>
+                        <li>Heavy cream → Evaporated milk</li>
+                        <li>Parmesan → Any hard cheese</li>
+                        <li>Fresh herbs → Dried herbs (use 1/3 amount)</li>
+                        <li>Wine → Stock + vinegar</li>
+                    </ul>
+                    <p>Cooking is flexible - don't be afraid to experiment!</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="yum-challenge" class="challenge">
+            <h2>Weekly Yum Challenge</h2>
+            <p>Each week we issue a simple cooking challenge to help you build skills and confidence in the kitchen. This week's challenge:</p>
+            <h3 style="font-size: 28px; margin-bottom: 20px;">Make a Meal Using Only 5 Ingredients</h3>
+            <a href="#" class="btn btn-primary" style="background-color: var(--tomato-red); color: white;">Join the Challenge</a>
+        </section>
+        
+        <section class="disclaimer">
+            <h2>Disclaimer</h2>
+            <p>Last updated: June 01, 2023</p>
+            
+            <p>The information provided on CookYum ("we," "our," or "us") is for general informational purposes only. All information on the site is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.</p>
+            
+            <p><strong>Not Professional Advice</strong><br>
+            The content on CookYum is not intended to be a substitute for professional culinary, nutritional, or medical advice, diagnosis, or treatment. Always seek the advice of your physician, dietitian, or other qualified health provider with any questions you may have regarding a medical condition or dietary needs.</p>
+            
+            <p><strong>Food Allergies & Safety</strong><br>
+            While we strive to provide accurate ingredient information, we cannot guarantee that any recipe is free from allergens. It is your responsibility to check all ingredients for potential allergens and to take necessary precautions when preparing and consuming food. We are not liable for any adverse reactions or consequences resulting from the use of recipes or information on this site.</p>
+            
+            <p><strong>External Links Disclaimer</strong><br>
+            The site may contain links to external websites that are not provided or maintained by or in any way affiliated with us. Please note that we do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.</p>
+            
+            <p><strong>Nutritional Information</strong><br>
+            Nutritional information provided on recipes is an estimate calculated using online tools and should not be considered a guarantee. Many factors can affect the actual nutritional values of any given recipe. For precise nutritional information, we recommend consulting a registered dietitian or using a professional nutritional analysis tool.</p>
+            
+            <p><strong>Test Kitchen Results</strong><br>
+            All recipes are tested in our test kitchen, but individual results may vary due to differences in ingredients, cooking equipment, and cooking skills. We recommend reading through the entire recipe before beginning and adjusting to your personal taste and equipment as needed.</p>
+            
+            <p><strong>Limitation of Liability</strong><br>
+            Under no circumstance shall we have any liability to you for any loss or damage of any kind incurred as a result of the use of the site or reliance on any information provided on the site. Your use of the site and your reliance on any information on the site is solely at your own risk.</p>
+            
+            <p><strong>Changes to This Disclaimer</strong><br>
+            We may update our Disclaimer from time to time. We will notify you of any changes by posting the new Disclaimer on this page. You are advised to review this Disclaimer periodically for any changes.</p>
+            
+            <p><strong>Contact Us</strong><br>
+            If you have any questions about this Disclaimer, please contact us at: legal@cookyum.com</p>
+        </section>
+        
+        <section class="newsletter">
+            <h2>Get Weekly Yum in Your Inbox</h2>
+            <p>Join our community of happy cooks and receive our best quick recipes, cooking hacks, and weekly challenges!</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>CookYum</h3>
+                    <p>Making cooking fun, fast, and tasty for everyone. Quick recipes for busy people and beginners.</p>
+                    <div style="margin-top: 15px;">
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow);"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Recipe Categories</h3>
+                    <ul>
+                        <li><a href="#">5-Minute Recipes</a></li>
+                        <li><a href="#">10-Minute Meals</a></li>
+                        <li><a href="#">3-Ingredient Wonders</a></li>
+                        <li><a href="#">Easy Breakfasts</a></li>
+                        <li><a href="#">Quick Lunches</a></li>
+                        <li><a href="#">Simple Dinners</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Yum Street, Foodville, FC 12345</p>
+                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> (123) 456-7890</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> help@cookyum.com</p>
+                    
+                    <h3 style="margin-top: 20px;">Customer Satisfaction</h3>
+                    <p>Your satisfaction is our top priority. If you have any questions or feedback about our recipes or website, please don't hesitate to contact us. We're committed to providing you with the best quick and easy cooking experience possible.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 CookYum. All Rights Reserved. "Quick. Easy. Yummy." and "Good Food, No Fuss." are trademarks of CookYum.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

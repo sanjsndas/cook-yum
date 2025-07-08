@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Policy - CookYum</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --yummy-yellow: #FFEB3B;
+            --tomato-red: #F44336;
+            --soft-cream: #FFFDE7;
+            --slate-gray: #455A64;
+            --mint-green: #66BB6A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--soft-cream);
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--tomato-red);
+        }
+        
+        .logo span {
+            color: var(--slate-gray);
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--slate-gray);
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: var(--yummy-yellow);
+            color: var(--slate-gray);
+        }
+        
+        /* Cookies Policy Content */
+        .cookies-container {
+            background-color: white;
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .cookies-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .cookies-header h1 {
+            font-size: 36px;
+            color: var(--tomato-red);
+            margin-bottom: 20px;
+        }
+        
+        .cookies-header p {
+            font-size: 18px;
+            color: var(--slate-gray);
+        }
+        
+        .cookies-content {
+            margin-bottom: 40px;
+        }
+        
+        .cookies-section {
+            margin-bottom: 30px;
+        }
+        
+        .cookies-section h2 {
+            font-size: 24px;
+            color: var(--tomato-red);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--yummy-yellow);
+        }
+        
+        .cookies-section h3 {
+            font-size: 20px;
+            color: var(--slate-gray);
+            margin: 25px 0 15px;
+        }
+        
+        .cookies-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .cookies-section ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .cookies-section ul li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .cookies-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .cookies-section table, .cookies-section th, .cookies-section td {
+            border: 1px solid #ddd;
+        }
+        
+        .cookies-section th, .cookies-section td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .cookies-section th {
+            background-color: var(--soft-cream);
+        }
+        
+        .cookies-section tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Cookie Consent Banner */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--slate-gray);
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .cookie-consent p {
+            flex: 1;
+            min-width: 300px;
+            margin-right: 20px;
+        }
+        
+        .cookie-consent-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .cookie-btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .cookie-accept {
+            background-color: var(--mint-green);
+            color: white;
+            border: none;
+        }
+        
+        .cookie-decline {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+        
+        .cookie-settings {
+            background-color: var(--yummy-yellow);
+            color: var(--slate-gray);
+            border: none;
+        }
+        
+        .cookie-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--slate-gray);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--yummy-yellow);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--yummy-yellow);
+            padding-left: 5px;
+        }
+        
+        .footer-contact {
+            margin-top: 15px;
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--yummy-yellow);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .cookies-container {
+                padding: 20px;
+            }
+            
+            .cookies-header h1 {
+                font-size: 28px;
+            }
+            
+            .cookie-consent {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cookie-consent p {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .cookie-consent-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Cook<span>Yum</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="cookies-container">
+            <div class="cookies-header">
+                <h1>Cookies Policy</h1>
+                <p>Last updated: June 01, 2023</p>
+            </div>
+            
+            <div class="cookies-content">
+                <div class="cookies-section">
+                    <h2>1. Introduction</h2>
+                    <p>CookYum ("we," "our," or "us") uses cookies and similar tracking technologies on our website www.cookyum.com (the "Service"). This Cookies Policy explains what cookies are, how we use them, the types of cookies we use, and how you can manage your cookie preferences.</p>
+                    <p>By using our Service, you consent to the use of cookies in accordance with this Cookies Policy. Cookies are small pieces of text sent to your browser when you visit our website. They help us make the Service work properly, make it more secure, provide better user experience, and understand how the Service performs and where it needs improvement.</p>
+                    <p>This policy should be read together with our Privacy Policy which explains more about how we collect, use, and protect your personal information including through the use of cookies and similar technologies. If you do not agree with our use of cookies, you should adjust your browser settings accordingly or refrain from using our Service.</p>
+                </div>
+                
+                <div class="cookies-section">
+                    <h2>2. What Are Cookies?</h2>
+                    <p>Cookies are small text files that are placed on your computer, smartphone, or other device when you visit a website. They are widely used to make websites work more efficiently, as well as to provide information to the website owners. Cookies do lots of different jobs, like letting you navigate between pages efficiently, remembering your preferences, and generally improving the user experience.</p>
+                    <p>Cookies may be set by the website you are visiting ("first-party cookies") or by third parties, such as those who serve content or provide advertising or analytics services on the website ("third-party cookies"). Both websites and HTML emails may also contain other tracking technologies like "web beacons" or "pixels." These are typically small transparent images that provide us with statistics, for similar purposes as cookies.</p>
+                    <p>Cookies can remain on your computer or mobile device for different periods of time. Some cookies are "session cookies," meaning they exist only while your browser is open and are deleted automatically once you close your browser. Other cookies are "persistent cookies," meaning they survive after your browser is closed and can be used by websites to recognize your computer when you later reopen your browser.</p>
+                </div>
+                
+                <div class="cookies-section">
+                    <h2>3. How We Use Cookies</h2>
+                    <p>We use cookies for several purposes, which we've explained in detail below. The cookies we use may vary depending on the specific Service you're using. We use both session and persistent cookies on our Service and we use different types of cookies to run the Service:</p>
+                    
+                    <h3>Essential Cookies</h3>
+                    <p>These cookies are necessary to provide you with services available through our Service and to enable you to use some of its features. Without these cookies, the services that you have asked for cannot be provided, and we only use these cookies to provide you with those services.</p>
+                    <p>For example, essential cookies help remember your preferences as you navigate the site during a single browsing session. They also help with load balancing to make sure our content remains up during peak usage times. These cookies don't gather information about you that could be used for marketing or remembering where you've been on the internet.</p>
+                    
+                    <h3>Performance Cookies</h3>
+                    <p>These cookies collect information about how visitors use our Service, for instance which pages visitors go to most often, and if they get error messages from web pages. These cookies don't collect information that identifies a visitor. All information these cookies collect is aggregated and therefore anonymous. It is only used to improve how the Service works.</p>
+                    <p>We use Google Analytics cookies to help us understand how our visitors engage with the Service. Google Analytics collects information anonymously and reports website trends without identifying individual visitors. The cookies store information about what time the current visit occurred, whether the visitor has been to the site before, and what site referred the visitor to the web page.</p>
+                    
+                    <h3>Functionality Cookies</h3>
+                    <p>These cookies allow our Service to remember choices you make when you use our Service, such as remembering your language preference, login details, or the region you are in. The purpose of these cookies is to provide you with a more personal experience and to avoid you having to re-enter your preferences every time you use our Service.</p>
+                    <p>For example, we use functionality cookies to remember your preferred recipe categories or dietary preferences so we can show you more relevant content when you return to our site. These cookies may also be used to remember changes you've made to text size, fonts and other parts of web pages that you can customize.</p>
+                    
+                    <h3>Targeting/Advertising Cookies</h3>
+                    <p>These cookies are used to deliver advertisements more relevant to you and your interests. They are also used to limit the number of times you see an advertisement as well as help measure the effectiveness of the advertising campaign. They remember that you have visited a website and this information is shared with other organizations such as advertisers.</p>
+                    <p>We use these cookies to connect with social networks like Facebook and Pinterest, which may use information about your visit to target advertising to you on other websites. The advertising cookies on our site may be placed by advertising networks with our permission. They remember that you have visited a website and this information is shared with other organizations such as advertisers.</p>
+                </div>
+                
+                <div class="cookies-section">
+                    <h2>4. Types of Cookies We Use</h2>
+                    <p>The table below provides more information about the cookies we use and why we use them:</p>
+                    
+                    <table>
+                        <tr>
+                            <th>Cookie Name</th>
+                            <th>Purpose</th>
+                            <th>Type</th>
+                            <th>Duration</th>
+                        </tr>
+                        <tr>
+                            <td>session_id</td>
+                            <td>Maintains your session state across page requests</td>
+                            <td>Essential</td>
+                            <td>Session</td>
+                        </tr>
+                        <tr>
+                            <td>user_prefs</td>
+                            <td>Stores your preferences like theme, layout, etc.</td>
+                            <td>Functionality</td>
+                            <td>1 year</td>
+                        </tr>
+                        <tr>
+                            <td>_ga</td>
+                            <td>Google Analytics - distinguishes unique users</td>
+                            <td>Performance</td>
+                            <td>2 years</td>
+                        </tr>
+                        <tr>
+                            <td>_gid</td>
+                            <td>Google Analytics - distinguishes unique users</td>
+                            <td>Performance</td>
+                            <td>24 hours</td>
+                        </tr>
+                        <tr>
+                            <td>_gat</td>
+                            <td>Google Analytics - throttles request rate</td>
+                            <td>Performance</td>
+                            <td>1 minute</td>
+                        </tr>
+                        <tr>
+                            <td>fr</td>
+                            <td>Facebook Pixel - tracks conversions from Facebook ads</td>
+                            <td>Targeting</td>
+                            <td>3 months</td>
+                        </tr>
+                        <tr>
+                            <td>personalization_id</td>
+                            <td>Twitter - personalizes content and ads</td>
+                            <td>Targeting</td>
+                            <td>2 years</td>
+                        </tr>
+                        <tr>
+                            <td>NID</td>
+                            <td>Google - stores preferences for Google services</td>
+                            <td>Functionality</td>
+                            <td>6 months</td>
+                        </tr>
+                        <tr>
+                            <td>_pinterest_cm</td>
+                            <td>Pinterest conversion tracking</td>
+                            <td>Targeting</td>
+                            <td>1 year</td>
+                        </tr>
+                        <tr>
+                            <td>ajs_anonymous_id</td>
+                            <td>Segment analytics - identifies unique visitors</td>
+                            <td>Performance</td>
+                            <td>1 year</td>
+                        </tr>
+                    </table>
+                    
+                    <p>Please note that the names of cookies, pixels and other technologies may change over time. We periodically review and update our cookies list to ensure it remains accurate. Third parties may also change the names of their cookies, pixels and other technologies as they evolve their services.</p>
+                </div>
+                
+                <div class="cookies-section">
+                    <h2>5. Third-Party Cookies</h2>
+                    <p>In addition to our own cookies, we may also use various third-party cookies to report usage statistics of the Service, deliver advertisements on and through the Service, and so on. These third-party cookies may be used to recognize your computer when you visit our website and also when you visit certain other websites.</p>
+                    <p>We use Google Analytics to analyze the use of our website. Google Analytics gathers information about website use by means of cookies. The information gathered is used to create reports about the use of our website. Google's privacy policy is available at: https://www.google.com/policies/privacy/</p>
+                    <p>We publish Google AdSense interest-based advertisements on our website. These are tailored by Google to reflect your interests. To determine your interests, Google will track your behavior across the web using cookies. You can view, delete or add interest categories associated with your browser by visiting: https://adssettings.google.com</p>
+                    <p>We use Facebook Pixel to measure the effectiveness of our advertising and to show you ads that are more relevant to you. Facebook may use cookies, web beacons, and other storage technologies to collect or receive information from our Service and elsewhere on the internet and use that information to provide measurement services and target ads.</p>
+                    <p>We also use Pinterest Save widget at our website to allow you to pin images to Pinterest from our webpages. These requests may track your IP address in accordance with their data privacy policy: https://policy.pinterest.com/en/privacy-policy</p>
+                </div>
+                
+                <div class="cookies-section">
+                    <h2>6. How to Manage Cookies</h2>
+                    <p>You have the right to decide whether to accept or reject cookies. You can exercise your cookie preferences by clicking on the appropriate opt-out links provided in the cookie table above or by setting or amending your web browser controls to accept or refuse cookies.</p>
+                    
+                    <h3>Browser Controls</h3>
+                    <p>Most web browsers allow some control of most cookies through the browser settings. To find out more about cookies, including how to see what cookies have been set and how to manage and delete them, visit www.allaboutcookies.org.</p>
+                    <p>You can set or amend your web browser controls to accept or refuse cookies. If you choose to reject cookies, you may still use our website though your access to some functionality and areas of our website may be restricted. As the means by which you can refuse cookies through your web browser controls vary from browser-to-browser, you should visit your browser's help menu for more information.</p>
+                    <p>Here are instructions for managing cookies in common browsers:</p>
+                    <ul>
+                        <li><strong>Google Chrome:</strong> Click the menu icon → Settings → Privacy and security → Cookies and other site data</li>
+                        <li><strong>Mozilla Firefox:</strong> Click the menu icon → Options → Privacy & Security → Cookies and Site Data</li>
+                        <li><strong>Apple Safari:</strong> Safari → Preferences → Privacy → Cookies and website data</li>
+                        <li><strong>Microsoft Edge:</strong> Click the menu icon → Settings → Cookies and site permissions → Cookies and data stored</li>
+                        <li><strong>Internet Explorer:</strong> Tools → Internet Options → Privacy tab → Advanced</li>
+                    </ul>
+                    
+                    <h3>Opt-Out Tools</h3>
+                    <p>You can opt out of targeted advertising by using the following links:</p>
+                    <ul>
+                        <li>Digital Advertising Alliance (DAA): http://optout.aboutads.info/</li>
+                        <li>Network Advertising Initiative (NAI): http://optout.networkadvertising.org/</li>
+                        <li>European Interactive Digital Advertising Alliance (EDAA): http://www.youronlinechoices.com/</li>
+                        <li>Digital Advertising Alliance Canada (DAAC): https://youradchoices.ca/</li>
+                        <li>Digital Advertising Alliance EU (EDAA): http://www.youronlinechoices.com/</li>
+                    </ul>
+                    <p>Please note that opting out does not mean you will no longer receive online advertising. It does mean that the company or companies from which you opted out will no longer deliver ads tailored to your web preferences and usage patterns.</p>
+                    
+                    <h3>Mobile Devices</h3>
+                    <p>Your mobile device may give you the ability to opt out of the use of information about the apps you use in order to serve you ads that are targeted to your interests. You can opt out of interest-based ads on Android by selecting "Opt out of Ads Personalization" in the Google Settings app on your device. iOS users can opt out by enabling "Limit Ad Tracking" in the privacy settings on their device.</p>
+                    <p>You may stop all collection of information by our mobile applications by uninstalling the mobile application. You may use the standard uninstall processes available as part of your mobile device or via the mobile application marketplace or network.</p>
+                </div>
+                
+                <div class="cookies-section">
+                    <h2>7. Do Not Track Signals</h2>
+                    <p>Some browsers incorporate a "Do Not Track" (DNT) feature that, when turned on, signals to websites and online services that you do not want to be tracked. Currently, there is no industry standard for recognizing and implementing DNT signals, so our Service does not currently respond to DNT browser signals or mechanisms.</p>
+                    <p>We continue to monitor developments around DNT browser technology and the implementation of a standard. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this Cookies Policy.</p>
+                    <p>In the meantime, you can use the tools we describe in the "How to Manage Cookies" section above to control many forms of tracking and data collection when using our Service.</p>
+                </div>
+                
+                <div class="cookies-section">
+                    <h2>8. Changes to This Cookies Policy</h2>
+                    <p>We may update our Cookies Policy from time to time. We will notify you of any changes by posting the new Cookies Policy on this page and updating the "Last updated" date at the top of this Cookies Policy.</p>
+                    <p>We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update the "effective date" at the top of this Cookies Policy.</p>
+                    <p>You are advised to review this Cookies Policy periodically for any changes. Changes to this Cookies Policy are effective when they are posted on this page.</p>
+                </div>
+                
+                <div class="cookies-section">
+                    <h2>9. Contact Us</h2>
+                    <p>If you have any questions about this Cookies Policy, please contact us:</p>
+                    <ul>
+                        <li>By email: privacy@cookyum.com</li>
+                        <li>By visiting this page on our website: www.cookyum.com/contact</li>
+                        <li>By mail: 123 Yum Street, Foodville, FC 12345, United States</li>
+                    </ul>
+                </div>
+                
+                <!-- 40 Detailed Contact-Related Points -->
+                <div class="cookies-section">
+                    <h2>10. Detailed Contact Information Points</h2>
+                    
+                    <h3>1. Data Protection Officer Contact</h3>
+                    <p>Our Data Protection Officer can be reached at dpo@cookyum.com for any questions regarding data protection and cookie usage. The DPO oversees compliance with data protection laws and serves as the point of contact for data subjects and supervisory authorities. You may contact the DPO for clarification on any aspect of this Cookies Policy or to report any concerns regarding your personal data.</p>
+                    
+                    <h3>2. Cookie Preference Center</h3>
+                    <p>You can manage your cookie preferences through our Cookie Preference Center accessible at www.cookyum.com/cookie-settings. The center allows you to enable or disable different categories of cookies (essential, performance, functionality, targeting) with granular control. Your preferences will be remembered for future visits, though you may need to reconfirm them periodically.</p>
+                    
+                    <h3>3. EU Representative Contact</h3>
+                    <p>For users in the European Union, our designated EU representative can be contacted at eurep@cookyum.com regarding any issues related to GDPR compliance. This representative serves as a local point of contact for EU data protection authorities and individuals in the EU, ensuring compliance with GDPR requirements for non-EU based companies.</p>
+                    
+                    <h3>4. California Privacy Rights Contact</h3>
+                    <p>California residents may contact us at caprivacy@cookyum.com to exercise their rights under the CCPA, including requests to know what personal information is collected and to opt-out of the sale of personal information. Our dedicated California privacy team will respond to verified requests within 45 days as required by law, with the possibility of a 45-day extension when reasonably necessary.</p>
+                    
+                    <h3>5. Technical Support for Cookie Issues</h3>
+                    <p>For technical assistance with cookie-related issues such as problems with preference settings or website functionality, contact support@cookyum.com with "Cookie Technical Support" in the subject line. Our support team can guide you through browser settings, troubleshoot display issues, and ensure our cookie controls work properly with your specific browser and device configuration.</p>
+                    
+                    <h3>6. Advertising Opt-Out Requests</h3>
+                    <p>To opt out of targeted advertising cookies, email adsoptout@cookyum.com with your request. Please include the browser and devices you use to access our Service so we can properly apply your preferences across all platforms. Note that opting out doesn't mean you'll see fewer ads, just that they may be less relevant to your interests.</p>
+                    
+                    <h3>7. Analytics Data Access Requests</h3>
+                    <p>Users wishing to access analytics data collected about them through cookies may submit requests to analytics@cookyum.com. We'll provide a report detailing the non-personally identifiable information associated with your device ID or cookie identifiers, including pages visited, time spent, and interactions with our Service.</p>
+                    
+                    <h3>8. Cookie Policy Clarifications</h3>
+                    <p>For any questions about interpreting this Cookies Policy or understanding specific cookie practices, email cookiepolicy@cookyum.com. Our legal team can provide additional explanations about cookie durations, purposes, and the specific data elements collected by each type of cookie we use.</p>
+                    
+                    <h3>9. Third-Party Cookie Inquiries</h3>
+                    <p>Questions specifically about third-party cookies used on our Service can be directed to thirdpartycookies@cookyum.com. We maintain records of all third-party services that place cookies through our website and can provide information about their purposes, data collection practices, and opt-out methods.</p>
+                    
+                    <h3>10. Cookie Consent Withdrawal</h3>
+                    <p>To withdraw previously given cookie consent, send an email to consentwithdrawal@cookyum.com stating your request. Upon receipt, we'll guide you through the process of resetting your cookie preferences and provide instructions for deleting existing cookies from your browser. Note that some website features may not work properly after consent withdrawal.</p>
+                    
+                    <h3>11. Children's Privacy Contact</h3>
+                    <p>Parents or guardians with concerns about cookies placed during a child's use of our Service may contact us at childrensprivacy@cookyum.com. We comply with COPPA requirements and do not knowingly collect personal information from children under 13 without verifiable parental consent. Parents can request to review or delete any information potentially collected from their child.</p>
+                    
+                    <h3>12. Accessibility Support for Cookie Controls</h3>
+                    <p>Users needing accessibility accommodations to manage cookie preferences can contact accessibility@cookyum.com for assistance. We provide alternative methods to access and control cookie settings for users with disabilities, including voice guidance, keyboard navigation support, and compatibility with screen readers.</p>
+                    
+                    <h3>13. Cookie Policy Version Requests</h3>
+                    <p>To request archived versions of previous cookie policies for comparison or reference, email policyarchive@cookyum.com. We maintain historical records of all policy changes and can provide documentation of when specific cookie practices were implemented or modified.</p>
+                    
+                    <h3>14. Security Concerns Reporting</h3>
+                    <p>Report any suspected security issues related to cookies, such as unauthorized tracking or cookie tampering, to security@cookyum.com. Our security team investigates all reports of potential vulnerabilities and will respond with our findings and any remediation actions taken.</p>
+                    
+                    <h3>15. International Cookie Compliance</h3>
+                    <p>For questions about how we comply with cookie regulations in specific countries (e.g., GDPR in EU, ePrivacy Directive, etc.), contact internationalcompliance@cookyum.com. We adapt our cookie practices to meet regional requirements and can provide country-specific information about data collection and processing.</p>
+                    
+                    <h3>16. Cookie-Related Complaint Resolution</h3>
+                    <p>Formal complaints about our cookie practices can be submitted to complaints@cookyum.com. We take all complaints seriously and will acknowledge receipt within 5 business days, with a full response including our position and any corrective actions within 30 days.</p>
+                    
+                    <h3>17. Cookie Research Participation</h3>
+                    <p>Researchers interested in studying our cookie implementation or requesting aggregated, anonymized cookie data for academic purposes may contact research@cookyum.com. All research requests are evaluated based on methodology, purpose, and privacy protections before approval.</p>
+                    
+                    <h3>18. Cookie Implementation for Developers</h3>
+                    <p>Web developers seeking technical documentation about our cookie implementation for integration purposes can email developers@cookyum.com. We provide API documentation and technical specifications to help developers understand how our cookies function and interact with other systems.</p>
+                    
+                    <h3>19. Cookie Duration Inquiries</h3>
+                    <p>For specific questions about how long particular cookies remain on user devices and when they expire, contact cookieduration@cookyum.com. We maintain detailed records of all cookie lifespans and can explain the rationale behind persistence periods for different cookie types.</p>
+                    
+                    <h3>20. Cookie Audit Requests</h3>
+                    <p>Organizations conducting privacy audits may request verification of our cookie practices by emailing audits@cookyum.com. We cooperate with legitimate audit requests and can provide documentation, logs, and other evidence of compliance with stated cookie policies.</p>
+                    
+                    <h3>21. Cookie Policy Translation Requests</h3>
+                    <p>For translations of this Cookies Policy into other languages, email translations@cookyum.com. While we currently provide this policy in English only, we can arrange professional translations upon request for users who need accommodations.</p>
+                    
+                    <h3>22. Cookie-Related Legal Requests</h3>
+                    <p>Law enforcement or government agencies with legal requests for cookie-related data must submit them to legalrequests@cookyum.com with proper documentation. We carefully review all legal requests for compliance with applicable laws before responding and prioritize user privacy in all disclosures.</p>
+                    
+                    <h3>23. Cookie Performance Metrics</h3>
+                    <p>Business partners interested in aggregated performance metrics derived from cookie data may inquire at metrics@cookyum.com. We share high-level insights with partners while protecting individual user privacy through strict aggregation and anonymization protocols.</p>
+                    
+                    <h3>24. Cookie Storage Details</h3>
+                    <p>Technical questions about how and where cookies are stored (local storage, session storage, IndexedDB, etc.) can be sent to storagedetails@cookyum.com. Our engineers can explain the technical implementation of our cookie storage mechanisms and their security characteristics.</p>
+                    
+                    <h3>25. Cookie Impact Assessments</h3>
+                    <p>Requests for Data Protection Impact Assessments related to our cookie practices should be directed to dpia@cookyum.com. We conduct regular assessments of high-risk processing activities involving cookies and can provide appropriate documentation.</p>
+                    
+                    <h3>26. Cookie Policy Training Materials</h3>
+                    <p>Educational institutions or organizations seeking training materials about our cookie policies may request them at training@cookyum.com. We provide slide decks, FAQs, and other resources to help users understand our cookie practices.</p>
+                    
+                    <h3>27. Cookie-Related Incident Reporting</h3>
+                    <p>Report suspected data incidents or breaches involving cookie data to incidents@cookyum.com. Our incident response team follows established protocols to investigate, contain, and remediate any security events, with notifications to affected parties when required by law.</p>
+                    
+                    <h3>28. Cookie Preference Sync Issues</h3>
+                    <p>For help with cookie preferences not syncing across devices or browsers, email syncsupport@cookyum.com. Our technical team can troubleshoot synchronization issues and ensure your preferences are properly recorded and applied.</p>
+                    
+                    <h3>29. Cookie-Related Feature Requests</h3>
+                    <p>Suggestions for improving our cookie management features can be sent to features@cookyum.com. We welcome user feedback on how to make our cookie controls more intuitive, comprehensive, and user-friendly.</p>
+                    
+                    <h3>30. Cookie Policy for Business Partners</h3>
+                    <p>Business partners with questions about how cookies affect integrations or data sharing can contact partners@cookyum.com. We provide specialized guidance for partners regarding cookie implications for API usage, embedded content, and co-marketing initiatives.</p>
+                    
+                    <h3>31. Cookie-Related Press Inquiries</h3>
+                    <p>Members of the press with questions about our cookie practices should direct them to press@cookyum.com. Our communications team can provide statements, arrange interviews with subject matter experts, and supply background information.</p>
+                    
+                    <h3>32. Cookie Technology Updates</h3>
+                    <p>To receive notifications about significant changes to our cookie technologies, subscribe to updates at cookieupdates@cookyum.com. We inform interested users about major implementations like new tracking methods, significant policy changes, or technology migrations.</p>
+                    
+                    <h3>33. Cookie-Related Career Inquiries</h3>
+                    <p>Professionals interested in working on our cookie and privacy technology team may inquire at privacycareers@cookyum.com. We're committed to building a talented team to maintain and improve our responsible cookie practices.</p>
+                    
+                    <h3>34. Cookie Policy for Investors</h3>
+                    <p>Investors with questions about how our cookie practices affect business metrics or compliance can contact investorrelations@cookyum.com. We provide transparent information about how cookies contribute to our operations while respecting user privacy.</p>
+                    
+                    <h3>35. Cookie-Related Vendor Inquiries</h3>
+                    <p>Vendors offering cookie-related services or technologies may contact vendors@cookyum.com. We evaluate new solutions that can enhance user privacy while maintaining website functionality and business needs.</p>
+                    
+                    <h3>36. Cookie Policy for Educators</h3>
+                    <p>Educators seeking to use our Cookie Policy as a teaching resource can request educational materials at education@cookyum.com. We support privacy education and provide annotated versions of our policy for classroom use.</p>
+                    
+                    <h3>37. Cookie-Related Survey Participation</h3>
+                    <p>Users interested in participating in surveys about our cookie practices may opt-in at surveys@cookyum.com. Your feedback helps us improve our cookie controls and transparency efforts.</p>
+                    
+                    <h3>38. Cookie Policy for Legal Professionals</h3>
+                    <p>Legal professionals with questions about the enforceability or interpretation of our Cookie Policy may contact legalprofessionals@cookyum.com. We're happy to provide additional context about our policy language and implementation.</p>
+                    
+                    <h3>39. Cookie-Related Conference Speaking</h3>
+                    <p>Event organizers seeking speakers to discuss our cookie implementation can request at speaking@cookyum.com. Our privacy experts participate in industry events to share best practices and lessons learned.</p>
+                    
+                    <h3>40. General Cookie Information</h3>
+                    <p>For all other cookie-related inquiries not covered by the above contacts, email cookies@cookyum.com. Our general support team will route your question to the appropriate specialist and ensure you receive a timely response.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>CookYum</h3>
+                    <p>Making cooking fun, fast, and tasty for everyone. Quick recipes for busy people and beginners.</p>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Yum Street, Foodville, FC 12345</p>
+                        <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                        <p><i class="fas fa-envelope"></i> help@cookyum.com</p>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow);"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Recipe Categories</h3>
+                    <ul>
+                        <li><a href="#">5-Minute Recipes</a></li>
+                        <li><a href="#">10-Minute Meals</a></li>
+                        <li><a href="#">3-Ingredient Wonders</a></li>
+                        <li><a href="#">Easy Breakfasts</a></li>
+                        <li><a href="#">Quick Lunches</a></li>
+                        <li><a href="#">Simple Dinners</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <p>Our team is available to assist you with any questions or concerns you may have about our Service, recipes, or policies.</p>
+                    <h3 style="margin-top: 20px;">Customer Satisfaction</h3>
+                    <p>Your satisfaction is our top priority. We value your feedback and are committed to continuously improving your experience with CookYum.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 CookYum. All Rights Reserved. "Quick. Easy. Yummy." and "Good Food, No Fuss." are trademarks of CookYum.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-consent" id="cookieConsent">
+        <p>We use cookies to enhance your experience on our website. By clicking "Accept", you consent to our use of all cookies. You can manage your preferences by clicking "Settings".</p>
+        <div class="cookie-consent-buttons">
+            <button class="cookie-btn cookie-decline" id="declineCookies">Decline</button>
+            <button class="cookie-btn cookie-settings" id="cookieSettings">Settings</button>
+            <button class="cookie-btn cookie-accept" id="acceptCookies">Accept</button>
+        </div>
+    </div>
+
+    <script>
+        // Cookie Consent Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieConsent = document.getElementById('cookieConsent');
+            const acceptCookies = document.getElementById('acceptCookies');
+            const declineCookies = document.getElementById('declineCookies');
+            const cookieSettings = document.getElementById('cookieSettings');
+            
+            // Check if user has already made a choice
+            if (!localStorage.getItem('cookieConsent')) {
+                cookieConsent.style.display = 'flex';
+            }
+            
+            // Accept all cookies
+            acceptCookies.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieConsent.style.display = 'none';
+                // Here you would typically load all cookies
+                console.log('All cookies accepted');
+            });
+            
+            // Decline non-essential cookies
+            declineCookies.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'declined');
+                cookieConsent.style.display = 'none';
+                // Here you would typically block non-essential cookies
+                console.log('Non-essential cookies declined');
+            });
+            
+            // Open cookie settings
+            cookieSettings.addEventListener('click', function() {
+                // In a real implementation, this would open a modal with granular controls
+                alert('Cookie settings would open here, allowing you to choose which types of cookies to accept.');
+                console.log('Cookie settings requested');
+            });
+            
+            // Close banner if clicked outside
+            document.addEventListener('click', function(e) {
+                if (!cookieConsent.contains(e.target) {
+                    // Optionally add behavior when clicking outside
+                }
+            });
+        });
+        
+        // FAQ Accordion Functionality
+        document.querySelectorAll('.cookies-section h3').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                // Close all other answers
+                document.querySelectorAll('.cookies-section h3').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.style.display = 'none';
+                });
+                
+                // Open clicked question if it wasn't active
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

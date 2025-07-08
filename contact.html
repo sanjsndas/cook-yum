@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - CookYum</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --yummy-yellow: #FFEB3B;
+            --tomato-red: #F44336;
+            --soft-cream: #FFFDE7;
+            --slate-gray: #455A64;
+            --mint-green: #66BB6A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--soft-cream);
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--tomato-red);
+        }
+        
+        .logo span {
+            color: var(--slate-gray);
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--slate-gray);
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: var(--yummy-yellow);
+            color: var(--slate-gray);
+        }
+        
+        /* Contact Header */
+        .contact-header {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .contact-header h1 {
+            font-size: 42px;
+            color: var(--tomato-red);
+            margin-bottom: 20px;
+        }
+        
+        .contact-header p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Contact Content */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form h2 {
+            font-size: 24px;
+            color: var(--tomato-red);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--yummy-yellow);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--mint-green);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 187, 106, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--tomato-red);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #e53935;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-info h2 {
+            font-size: 24px;
+            color: var(--tomato-red);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--yummy-yellow);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .info-icon {
+            background-color: var(--yummy-yellow);
+            color: var(--slate-gray);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .info-content h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--slate-gray);
+        }
+        
+        .info-content p,
+        .info-content a {
+            color: var(--slate-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .info-content a:hover {
+            color: var(--tomato-red);
+        }
+        
+        /* Social Media */
+        .social-media {
+            margin-top: 30px;
+        }
+        
+        .social-media h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--slate-gray);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--yummy-yellow);
+            color: var(--slate-gray);
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--tomato-red);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 60px;
+        }
+        
+        .faq-section h2 {
+            font-size: 28px;
+            color: var(--tomato-red);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 15px 20px;
+            background-color: var(--soft-cream);
+            color: var(--slate-gray);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: #f5f5e1;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 20px;
+        }
+        
+        .faq-question.active::after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer.show {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        /* Map */
+        .map-container {
+            height: 400px;
+            margin-bottom: 60px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--slate-gray);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--yummy-yellow);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--yummy-yellow);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .contact-header h1 {
+                font-size: 32px;
+            }
+            
+            .contact-header p {
+                font-size: 18px;
+            }
+            
+            .faq-section {
+                padding: 20px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Cook<span>Yum</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="contact-header">
+            <h1>Get in Touch</h1>
+            <p>Have questions, feedback, or just want to say hello? We'd love to hear from you! Our team is here to help with any inquiries you might have.</p>
+        </section>
+        
+        <div class="contact-container">
+            <div class="contact-form">
+                <h2>Send Us a Message</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="" disabled selected>Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="recipe">Recipe Question</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="business">Business Inquiry</option>
+                            <option value="press">Press/Media</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+            
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Our Location</h3>
+                        <p>123 Yum Street<br>Foodville, FC 12345<br>United States</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Call Us</h3>
+                        <p>Main: <a href="tel:+11234567890">(123) 456-7890</a><br>
+                        Support: <a href="tel:+11234567891">(123) 456-7891</a></p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Email Us</h3>
+                        <p>General: <a href="mailto:hello@cookyum.com">hello@cookyum.com</a><br>
+                        Support: <a href="mailto:support@cookyum.com">support@cookyum.com</a></p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Working Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+                        Saturday: 10:00 AM - 4:00 PM<br>
+                        Sunday: Closed</p>
+                    </div>
+                </div>
+                
+                <div class="social-media">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How can I submit my own recipe to CookYum?</div>
+                <div class="faq-answer">
+                    <p>We love receiving recipe submissions from our community! You can email your recipe to submissions@cookyum.com with the subject line "Recipe Submission". Please include a list of ingredients, step-by-step instructions, preparation time, and any photos you'd like to share. Our editorial team will review your submission and get back to you within 2-3 weeks.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How long does it take to receive a response to my inquiry?</div>
+                <div class="faq-answer">
+                    <p>We strive to respond to all inquiries within 48 hours during our normal business hours. Technical support requests may take up to 72 hours for a complete response. If you haven't heard back from us within this timeframe, please check your spam folder or contact us again.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you offer advertising or sponsorship opportunities?</div>
+                <div class="faq-answer">
+                    <p>Yes! We work with brands that align with our mission of making cooking quick, easy, and delicious. For advertising inquiries, please email partnerships@cookyum.com with details about your brand and what type of collaboration you're interested in. Our partnership team will get back to you with available opportunities.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I use your recipes in my cookbook/blog/restaurant menu?</div>
+                <div class="faq-answer">
+                    <p>Our recipes are protected by copyright, but we're often happy to grant permission for non-commercial use with proper attribution. For commercial use, please contact us at legal@cookyum.com with details about how you'd like to use the recipe. We typically respond to these requests within 5-7 business days.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you have an affiliate program?</div>
+                <div class="faq-answer">
+                    <p>Yes, we have an affiliate program for content creators and bloggers. You can join our program through our affiliate network partner. Please email affiliates@cookyum.com for more information about commission rates, requirements, and how to apply.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215256087366!2d-73.98784492403348!3d40.74844097138948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjQiTiA3M8KwNTknMTMuNiJX!5e0!3m2!1sen!2sus!4v1623252345678!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>CookYum</h3>
+                    <p>Making cooking fun, fast, and tasty for everyone. Quick recipes for busy people and beginners.</p>
+                    <div style="margin-top: 15px;">
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow);"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Recipe Categories</h3>
+                    <ul>
+                        <li><a href="#">5-Minute Recipes</a></li>
+                        <li><a href="#">10-Minute Meals</a></li>
+                        <li><a href="#">3-Ingredient Wonders</a></li>
+                        <li><a href="#">Easy Breakfasts</a></li>
+                        <li><a href="#">Quick Lunches</a></li>
+                        <li><a href="#">Simple Dinners</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Yum Street, Foodville, FC 12345</p>
+                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> (123) 456-7890</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> help@cookyum.com</p>
+                    
+                    <h3 style="margin-top: 20px;">Customer Satisfaction</h3>
+                    <p>Your satisfaction is our top priority. If you have any questions or feedback about our recipes or website, please don't hesitate to contact us.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 CookYum. All Rights Reserved. "Quick. Easy. Yummy." and "Good Food, No Fuss." are trademarks of CookYum.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('show');
+                });
+                
+                // Open clicked FAQ if it wasn't active
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('show');
+                }
+            });
+        });
+        
+        // Form Submission Handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you, ${name}! Your message has been received. We'll respond to you at ${email} soon.`);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>

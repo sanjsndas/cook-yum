@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - CookYum</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --yummy-yellow: #FFEB3B;
+            --tomato-red: #F44336;
+            --soft-cream: #FFFDE7;
+            --slate-gray: #455A64;
+            --mint-green: #66BB6A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--soft-cream);
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--tomato-red);
+        }
+        
+        .logo span {
+            color: var(--slate-gray);
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--slate-gray);
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: var(--yummy-yellow);
+            color: var(--slate-gray);
+        }
+        
+        /* Privacy Policy Content */
+        .privacy-container {
+            background-color: white;
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .privacy-header h1 {
+            font-size: 36px;
+            color: var(--tomato-red);
+            margin-bottom: 20px;
+        }
+        
+        .privacy-header p {
+            font-size: 18px;
+            color: var(--slate-gray);
+        }
+        
+        .privacy-content {
+            margin-bottom: 40px;
+        }
+        
+        .privacy-section {
+            margin-bottom: 30px;
+        }
+        
+        .privacy-section h2 {
+            font-size: 24px;
+            color: var(--tomato-red);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--yummy-yellow);
+        }
+        
+        .privacy-section h3 {
+            font-size: 20px;
+            color: var(--slate-gray);
+            margin: 25px 0 15px;
+        }
+        
+        .privacy-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .privacy-section ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .privacy-section ul li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .privacy-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .privacy-section table, .privacy-section th, .privacy-section td {
+            border: 1px solid #ddd;
+        }
+        
+        .privacy-section th, .privacy-section td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .privacy-section th {
+            background-color: var(--soft-cream);
+        }
+        
+        .privacy-section tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--slate-gray);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--yummy-yellow);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--yummy-yellow);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .privacy-container {
+                padding: 20px;
+            }
+            
+            .privacy-header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Cook<span>Yum</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="privacy-container">
+            <div class="privacy-header">
+                <h1>Privacy Policy</h1>
+                <p>Last updated: June 01, 2023</p>
+            </div>
+            
+            <div class="privacy-content">
+                <div class="privacy-section">
+                    <h2>Introduction</h2>
+                    <p>CookYum ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by CookYum. This Privacy Policy applies to our website, and its associated subdomains (collectively, our "Service") alongside our application, CookYum. By accessing or using our Service, you signify that you have read, understood, and agree to our collection, storage, use, and disclosure of your personal information as described in this Privacy Policy and our Terms of Service.</p>
+                    
+                    <h3>Definitions and Key Terms</h3>
+                    <p>To help explain things as clearly as possible in this Privacy Policy, every time any of these terms are referenced, are strictly defined as:</p>
+                    <ul>
+                        <li><strong>Cookie:</strong> small amount of data generated by a website and saved by your web browser. It is used to identify your browser, provide analytics, remember information about you such as your language preference or login information.</li>
+                        <li><strong>Company:</strong> when this policy mentions "Company," "we," "us," or "our," it refers to CookYum, which is responsible for your information under this Privacy Policy.</li>
+                        <li><strong>Country:</strong> where CookYum or the owners/founders of CookYum are based, in this case is the United States.</li>
+                        <li><strong>Customer:</strong> refers to the company, organization or person that signs up to use the CookYum Service to manage the relationships with your consumers or service users.</li>
+                        <li><strong>Device:</strong> any internet connected device such as a phone, tablet, computer or any other device that can be used to visit CookYum and use the services.</li>
+                        <li><strong>IP address:</strong> Every device connected to the Internet is assigned a number known as an Internet protocol (IP) address. These numbers are usually assigned in geographic blocks. An IP address can often be used to identify the location from which a device is connecting to the Internet.</li>
+                        <li><strong>Personnel:</strong> refers to those individuals who are employed by CookYum or are under contract to perform a service on behalf of one of the parties.</li>
+                        <li><strong>Personal Data:</strong> any information that directly, indirectly, or in connection with other information — including a personal identification number — allows for the identification or identifiability of a natural person.</li>
+                        <li><strong>Service:</strong> refers to the service provided by CookYum as described in the relative terms (if available) and on this platform.</li>
+                        <li><strong>Third-party service:</strong> refers to advertisers, contest sponsors, promotional and marketing partners, and others who provide our content or whose products or services we think may interest you.</li>
+                        <li><strong>Website:</strong> CookYum's site, which can be accessed via this URL: www.cookyum.com</li>
+                        <li><strong>You:</strong> a person or entity that is registered with CookYum to use the Services.</li>
+                    </ul>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>What Information Do We Collect?</h2>
+                    <p>We collect information from you when you visit our website, register on our site, place an order, subscribe to our newsletter, respond to a survey or fill out a form.</p>
+                    
+                    <h3>Information You Provide Us</h3>
+                    <p>We may collect personal information that you voluntarily provide to us when you:</p>
+                    <ul>
+                        <li>Register for an account</li>
+                        <li>Sign up for email newsletters</li>
+                        <li>Participate in surveys, contests or promotions</li>
+                        <li>Contact customer service</li>
+                        <li>Submit user-generated content (e.g., comments, recipes, photos)</li>
+                        <li>Make purchases through our Service</li>
+                    </ul>
+                    <p>The types of personal information we may collect include:</p>
+                    <ul>
+                        <li>Name</li>
+                        <li>Email address</li>
+                        <li>Mailing address</li>
+                        <li>Phone number</li>
+                        <li>Payment information</li>
+                        <li>Demographic information</li>
+                        <li>Any other information you choose to provide</li>
+                    </ul>
+                    
+                    <h3>Information Collected Automatically</h3>
+                    <p>When you use our Service, we automatically collect certain information about your device and your use of the Service, which may include:</p>
+                    <ul>
+                        <li>IP address</li>
+                        <li>Browser type</li>
+                        <li>Device type</li>
+                        <li>Operating system</li>
+                        <li>Referring URLs</li>
+                        <li>Pages viewed</li>
+                        <li>Time spent on pages</li>
+                        <li>Links clicked</li>
+                        <li>Search terms used</li>
+                        <li>Date and time of access</li>
+                    </ul>
+                    
+                    <h3>Cookies and Tracking Technologies</h3>
+                    <p>We use cookies and similar tracking technologies to track the activity on our Service and hold certain information. Cookies are files with small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze our Service.</p>
+                    <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.</p>
+                    <p>Examples of Cookies we use:</p>
+                    <ul>
+                        <li><strong>Session Cookies:</strong> We use Session Cookies to operate our Service.</li>
+                        <li><strong>Preference Cookies:</strong> We use Preference Cookies to remember your preferences and various settings.</li>
+                        <li><strong>Security Cookies:</strong> We use Security Cookies for security purposes.</li>
+                        <li><strong>Advertising Cookies:</strong> Advertising Cookies are used to serve you with advertisements that may be relevant to you and your interests.</li>
+                    </ul>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>How Do We Use Your Information?</h2>
+                    <p>We use the information we collect in various ways, including to:</p>
+                    <ul>
+                        <li>Provide, operate, and maintain our website</li>
+                        <li>Improve, personalize, and expand our website</li>
+                        <li>Understand and analyze how you use our website</li>
+                        <li>Develop new products, services, features, and functionality</li>
+                        <li>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</li>
+                        <li>Process your transactions</li>
+                        <li>Send you emails</li>
+                        <li>Find and prevent fraud</li>
+                        <li>Comply with legal obligations</li>
+                    </ul>
+                    
+                    <h3>Legal Basis for Processing Personal Data Under General Data Protection Regulation (GDPR)</h3>
+                    <p>If you are from the European Economic Area (EEA), CookYum's legal basis for collecting and using the personal information described in this Privacy Policy depends on the Personal Data we collect and the specific context in which we collect it.</p>
+                    <p>CookYum may process your Personal Data because:</p>
+                    <ul>
+                        <li>We need to perform a contract with you</li>
+                        <li>You have given us permission to do so</li>
+                        <li>The processing is in our legitimate interests and it's not overridden by your rights</li>
+                        <li>For payment processing purposes</li>
+                        <li>To comply with the law</li>
+                    </ul>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>How Do We Share Your Information?</h2>
+                    <p>We may share the information we collect in various ways, including the following:</p>
+                    
+                    <h3>Vendors and Service Providers</h3>
+                    <p>We may share your information with third-party vendors and service providers that provide services on our behalf, such as:</p>
+                    <ul>
+                        <li>Payment processing</li>
+                        <li>Email delivery</li>
+                        <li>Hosting services</li>
+                        <li>Customer service</li>
+                        <li>Marketing services</li>
+                        <li>Analytics services</li>
+                    </ul>
+                    
+                    <h3>Business Transfers</h3>
+                    <p>Information may be disclosed and otherwise transferred to any potential acquirer, successor, or assignee as part of any proposed merger, acquisition, debt financing, sale of assets, or similar transaction, or in the event of insolvency, bankruptcy, or receivership in which information is transferred to one or more third parties as one of our business assets.</p>
+                    
+                    <h3>Legal Requirements</h3>
+                    <p>We may disclose your information if required to do so by law or in response to valid requests by public authorities (e.g., a court or a government agency).</p>
+                    
+                    <h3>With Your Consent</h3>
+                    <p>We may share your information with your consent or at your direction.</p>
+                    
+                    <h3>Aggregated or Anonymized Data</h3>
+                    <p>We may share aggregated or anonymized information that does not directly identify you with third parties.</p>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>Third-Party Services</h2>
+                    <p>We may employ third-party companies and individuals to facilitate our Service ("Service Providers"), to provide the Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service is used. These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</p>
+                    
+                    <h3>Analytics</h3>
+                    <p>We may use third-party Service Providers to monitor and analyze the use of our Service.</p>
+                    <ul>
+                        <li><strong>Google Analytics:</strong> Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our Service. This data is shared with other Google services. Google may use the collected data to contextualize and personalize the ads of its own advertising network. You can opt-out of having made your activity on the Service available to Google Analytics by installing the Google Analytics opt-out browser add-on. The add-on prevents the Google Analytics JavaScript (ga.js, analytics.js, and dc.js) from sharing information with Google Analytics about visits activity.</li>
+                    </ul>
+                    
+                    <h3>Advertising</h3>
+                    <p>We may use third-party Service Providers to show advertisements to you to help support and maintain our Service.</p>
+                    <ul>
+                        <li><strong>Google AdSense & DoubleClick Cookie:</strong> Google, as a third party vendor, uses cookies to serve ads on our Service. Google's use of the DoubleClick cookie enables it and its partners to serve ads to our users based on their visit to our Service or other websites on the Internet. You may opt out of the use of the DoubleClick Cookie for interest-based advertising by visiting the Google Ads Settings web page.</li>
+                    </ul>
+                    
+                    <h3>Behavioral Remarketing</h3>
+                    <p>CookYum uses remarketing services to advertise on third party websites to you after you visited our Service. We and our third-party vendors use cookies to inform, optimize and serve ads based on your past visits to our Service.</p>
+                    <ul>
+                        <li><strong>Google Ads (AdWords):</strong> Google Ads (AdWords) remarketing service is provided by Google Inc. You can opt-out of Google Analytics for Display Advertising and customize the Google Display Network ads by visiting the Google Ads Settings page. Google also recommends installing the Google Analytics Opt-out Browser Add-on for your web browser. Google Analytics Opt-out Browser Add-on provides visitors with the ability to prevent their data from being collected and used by Google Analytics.</li>
+                        <li><strong>Facebook:</strong> Facebook remarketing service is provided by Facebook Inc. You can learn more about interest-based advertising from Facebook by visiting this page. To opt-out from Facebook's interest-based ads follow these instructions from Facebook. Facebook adheres to the Self-Regulatory Principles for Online Behavioral Advertising established by the Digital Advertising Alliance. You can also opt-out from Facebook and other participating companies through the Digital Advertising Alliance in the USA, the Digital Advertising Alliance of Canada in Canada or the European Interactive Digital Advertising Alliance in Europe, or opt-out using your mobile device settings.</li>
+                    </ul>
+                    
+                    <h3>Payments</h3>
+                    <p>We may provide paid products and/or services within the Service. In that case, we use third-party services for payment processing (e.g., payment processors).</p>
+                    <p>We will not store or collect your payment card details. That information is provided directly to our third-party payment processors whose use of your personal information is governed by their Privacy Policy. These payment processors adhere to the standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint effort of brands like Visa, Mastercard, American Express and Discover. PCI-DSS requirements help ensure the secure handling of payment information.</p>
+                    <p>The payment processors we work with are:</p>
+                    <ul>
+                        <li><strong>Stripe:</strong> Their Privacy Policy can be viewed at https://stripe.com/us/privacy</li>
+                        <li><strong>PayPal:</strong> Their Privacy Policy can be viewed at https://www.paypal.com/webapps/mpp/ua/privacy-full</li>
+                    </ul>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>Data Retention</h2>
+                    <p>We will retain your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.</p>
+                    <p>We will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of our Service, or we are legally obligated to retain this data for longer time periods.</p>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>Transfer of Data</h2>
+                    <p>Your information, including Personal Data, may be transferred to — and maintained on — computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction.</p>
+                    <p>If you are located outside United States and choose to provide information to us, please note that we transfer the data, including Personal Data, to United States and process it there.</p>
+                    <p>Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.</p>
+                    <p>CookYum will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of your data and other personal information.</p>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>Security of Data</h2>
+                    <p>The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>
+                    <p>We implement appropriate technical and organizational measures to protect the security of your personal information, including:</p>
+                    <ul>
+                        <li>Encryption of data in transit</li>
+                        <li>Secure servers and networks</li>
+                        <li>Regular security assessments</li>
+                        <li>Access controls to personal information</li>
+                        <li>Employee training on data protection</li>
+                    </ul>
+                    <p>In the event of a data breach that affects your personal information, we will notify you and the appropriate authorities as required by applicable law.</p>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>Your Data Protection Rights</h2>
+                    <p>Depending on your location, you may have certain rights regarding your personal information. These may include:</p>
+                    
+                    <h3>General Data Protection Regulation (GDPR)</h3>
+                    <p>If you are a resident of the European Economic Area (EEA), you have certain data protection rights. CookYum aims to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data.</p>
+                    <p>If you wish to be informed what Personal Data we hold about you and if you want it to be removed from our systems, please contact us.</p>
+                    <p>In certain circumstances, you have the following data protection rights:</p>
+                    <ul>
+                        <li><strong>The right to access, update or to delete the information we have on you.</strong> Whenever made possible, you can access, update or request deletion of your Personal Data directly within your account settings section. If you are unable to perform these actions yourself, please contact us to assist you.</li>
+                        <li><strong>The right of rectification.</strong> You have the right to have your information rectified if that information is inaccurate or incomplete.</li>
+                        <li><strong>The right to object.</strong> You have the right to object to our processing of your Personal Data.</li>
+                        <li><strong>The right of restriction.</strong> You have the right to request that we restrict the processing of your personal information.</li>
+                        <li><strong>The right to data portability.</strong> You have the right to be provided with a copy of the information we have on you in a structured, machine-readable and commonly used format.</li>
+                        <li><strong>The right to withdraw consent.</strong> You also have the right to withdraw your consent at any time where CookYum relied on your consent to process your personal information.</li>
+                    </ul>
+                    <p>Please note that we may ask you to verify your identity before responding to such requests.</p>
+                    <p>You have the right to complain to a Data Protection Authority about our collection and use of your Personal Data. For more information, please contact your local data protection authority in the European Economic Area (EEA).</p>
+                    
+                    <h3>California Consumer Privacy Act (CCPA)</h3>
+                    <p>If you are a California resident, you have certain rights under the California Consumer Privacy Act (CCPA), including:</p>
+                    <ul>
+                        <li><strong>Right to Know:</strong> You have the right to request that we disclose certain information to you about our collection and use of your personal information over the past 12 months.</li>
+                        <li><strong>Right to Delete:</strong> You have the right to request that we delete any of your personal information that we collected from you and retained, subject to certain exceptions.</li>
+                        <li><strong>Right to Opt-Out:</strong> You have the right to opt-out of the sale of your personal information.</li>
+                        <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising any of your CCPA rights.</li>
+                    </ul>
+                    <p>To exercise these rights, please contact us. Only you, or a person registered with the California Secretary of State that you authorize to act on your behalf, may make a verifiable consumer request related to your personal information.</p>
+                    
+                    <h3>Other Jurisdictions</h3>
+                    <p>Depending on your location, you may have additional rights regarding your personal information. Please contact us if you would like to inquire about your rights under applicable law.</p>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>Children's Privacy</h2>
+                    <p>Our Service does not address anyone under the age of 13 ("Children").</p>
+                    <p>We do not knowingly collect personally identifiable information from anyone under the age of 13. If you are a parent or guardian and you are aware that your Children has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from children without verification of parental consent, we take steps to remove that information from our servers.</p>
+                    <p>If we need to rely on consent as a legal basis for processing your information and your country requires consent from a parent, we may require your parent's consent before we collect and use that information.</p>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>Links to Other Sites</h2>
+                    <p>Our Service may contain links to other sites that are not operated by us. If you click on a third party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit.</p>
+                    <p>We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.</p>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>Changes to This Privacy Policy</h2>
+                    <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+                    <p>We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update the "effective date" at the top of this Privacy Policy.</p>
+                    <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+                </div>
+                
+                <div class="privacy-section">
+                    <h2>Contact Us</h2>
+                    <p>If you have any questions about this Privacy Policy, please contact us:</p>
+                    <ul>
+                        <li>By email: privacy@cookyum.com</li>
+                        <li>By visiting this page on our website: www.cookyum.com/contact</li>
+                        <li>By mail: 123 Yum Street, Foodville, FC 12345, United States</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>CookYum</h3>
+                    <p>Making cooking fun, fast, and tasty for everyone. Quick recipes for busy people and beginners.</p>
+                    <div style="margin-top: 15px;">
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow);"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Recipe Categories</h3>
+                    <ul>
+                        <li><a href="#">5-Minute Recipes</a></li>
+                        <li><a href="#">10-Minute Meals</a></li>
+                        <li><a href="#">3-Ingredient Wonders</a></li>
+                        <li><a href="#">Easy Breakfasts</a></li>
+                        <li><a href="#">Quick Lunches</a></li>
+                        <li><a href="#">Simple Dinners</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Yum Street, Foodville, FC 12345</p>
+                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> (123) 456-7890</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> help@cookyum.com</p>
+                    
+                    <h3 style="margin-top: 20px;">Customer Satisfaction</h3>
+                    <p>Your satisfaction is our top priority. If you have any questions or feedback about our recipes or website, please don't hesitate to contact us.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 CookYum. All Rights Reserved. "Quick. Easy. Yummy." and "Good Food, No Fuss." are trademarks of CookYum.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

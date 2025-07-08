@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookYum Blog - Quick Cooking Tips & Recipes</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --yummy-yellow: #FFEB3B;
+            --tomato-red: #F44336;
+            --soft-cream: #FFFDE7;
+            --slate-gray: #455A64;
+            --mint-green: #66BB6A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--soft-cream);
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--tomato-red);
+        }
+        
+        .logo span {
+            color: var(--slate-gray);
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--slate-gray);
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: var(--yummy-yellow);
+            color: var(--slate-gray);
+        }
+        
+        /* Blog Header */
+        .blog-header {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .blog-header h1 {
+            font-size: 42px;
+            color: var(--tomato-red);
+            margin-bottom: 20px;
+        }
+        
+        .blog-header p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .blog-img {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .blog-card:hover .blog-img img {
+            transform: scale(1.1);
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: var(--slate-gray);
+        }
+        
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .blog-meta i {
+            color: var(--mint-green);
+        }
+        
+        .blog-content h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--slate-gray);
+        }
+        
+        .blog-content p {
+            margin-bottom: 20px;
+            color: var(--slate-gray);
+        }
+        
+        .blog-content a {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--yummy-yellow);
+            color: var(--slate-gray);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-content a:hover {
+            background-color: var(--tomato-red);
+            color: white;
+        }
+        
+        /* Categories Sidebar */
+        .blog-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+        }
+        
+        .sidebar {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        
+        .sidebar h3 {
+            font-size: 22px;
+            color: var(--tomato-red);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--yummy-yellow);
+        }
+        
+        .sidebar ul {
+            list-style: none;
+        }
+        
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+        
+        .sidebar ul li a {
+            color: var(--slate-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 8px 10px;
+            border-radius: 5px;
+        }
+        
+        .sidebar ul li a:hover {
+            background-color: var(--yummy-yellow);
+            padding-left: 15px;
+        }
+        
+        .sidebar ul li a i {
+            margin-right: 10px;
+            color: var(--mint-green);
+        }
+        
+        /* Popular Posts */
+        .popular-post {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .popular-post:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .popular-post img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
+        .popular-post h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .popular-post span {
+            font-size: 13px;
+            color: #777;
+        }
+        
+        /* Newsletter in Sidebar */
+        .sidebar-newsletter {
+            margin-top: 30px;
+            background-color: var(--soft-cream);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .sidebar-newsletter h3 {
+            border-bottom: none;
+            margin-bottom: 15px;
+        }
+        
+        .sidebar-newsletter input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .sidebar-newsletter button {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--tomato-red);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-newsletter button:hover {
+            background-color: #e53935;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .pagination a {
+            color: var(--slate-gray);
+            padding: 8px 16px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination a.active {
+            background-color: var(--tomato-red);
+            color: white;
+            border: 1px solid var(--tomato-red);
+        }
+        
+        .pagination a:hover:not(.active) {
+            background-color: var(--yummy-yellow);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--slate-gray);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--yummy-yellow);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--yummy-yellow);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: -1;
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .blog-header h1 {
+                font-size: 36px;
+            }
+            
+            .blog-header p {
+                font-size: 18px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Cook<span>Yum</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="blog-header">
+            <h1>CookYum Blog</h1>
+            <p>Quick cooking tips, kitchen hacks, and behind-the-scenes stories from our test kitchen to help you cook smarter, not harder.</p>
+        </section>
+        
+        <div class="blog-container">
+            <div class="blog-main">
+                <div class="blog-grid">
+                    <!-- Blog Post 1 -->
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="b1.webp" alt="Pasta Cooking Tips">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-clock"></i> June 15, 2023</span>
+                                <span><i class="fas fa-comment"></i> 12 Comments</span>
+                            </div>
+                            <h2>10 Pasta Cooking Mistakes You're Probably Making</h2>
+                            <p>From salting the water to testing for doneness, learn how to cook pasta perfectly every time with these simple tips.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 2 -->
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="b2.webp" alt="Avocado Toast Variations">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-clock"></i> June 8, 2023</span>
+                                <span><i class="fas fa-comment"></i> 8 Comments</span>
+                            </div>
+                            <h2>15 Avocado Toast Variations That Aren't Basic</h2>
+                            <p>Take your avocado toast game to the next level with these creative toppings from around the world.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 3 -->
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="b3.avif" alt="Meal Prep Containers">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-clock"></i> June 1, 2023</span>
+                                <span><i class="fas fa-comment"></i> 24 Comments</span>
+                            </div>
+                            <h2>Meal Prep Containers Compared: Glass vs Plastic vs Stainless</h2>
+                            <p>We tested all the popular meal prep containers to help you find the perfect ones for your needs and budget.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 4 -->
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="b4.webp" alt="Smoothie Ingredients">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-clock"></i> May 25, 2023</span>
+                                <span><i class="fas fa-comment"></i> 5 Comments</span>
+                            </div>
+                            <h2>The Ultimate Smoothie Ingredient Combination Guide</h2>
+                            <p>Learn how to combine fruits, veggies, liquids, and boosters for perfect smoothies every time.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 5 -->
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="b5.webp" alt="Omelette Techniques">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-clock"></i> May 18, 2023</span>
+                                <span><i class="fas fa-comment"></i> 17 Comments</span>
+                            </div>
+                            <h2>French vs American Omelette: Techniques Compared</h2>
+                            <p>We break down the differences between these two classic techniques and when to use each one.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 6 -->
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="b6.avif" alt="Microwave Hacks">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-clock"></i> May 11, 2023</span>
+                                <span><i class="fas fa-comment"></i> 31 Comments</span>
+                            </div>
+                            <h2>10 Surprising Things You Can Cook in a Microwave</h2>
+                            <p>Your microwave is more powerful than you think! Try these unexpected microwave cooking hacks.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="pagination">
+                    <a href="#">&laquo;</a>
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">&raquo;</a>
+                </div>
+            </div>
+            
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-utensils"></i> Quick Recipes</a></li>
+                        <li><a href="#"><i class="fas fa-lightbulb"></i> Cooking Tips</a></li>
+                        <li><a href="#"><i class="fas fa-tools"></i> Kitchen Tools</a></li>
+                        <li><a href="#"><i class="fas fa-shopping-basket"></i> Grocery Guides</a></li>
+                        <li><a href="#"><i class="fas fa-heart"></i> Healthy Eating</a></li>
+                        <li><a href="#"><i class="fas fa-coins"></i> Budget Cooking</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> Q&A</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3>Popular Posts</h3>
+                    
+                            <h4>3-Ingredient Pancakes You Can Make in 5 Minutes</h4>
+                            <span>May 4, 2023</span>
+                        </div>
+                    </div>
+                    
+                    
+                            <h4>Microwave Mug Cakes: 5 Flavor Variations</h4>
+                            <span>April 27, 2023</span>
+                        </div>
+                    </div>
+                    
+                   
+                            <h4>The Science of Perfect Scrambled Eggs</h4>
+                            <span>April 20, 2023</span>
+                        </>
+                    </div>
+                </div>
+                
+                <div class="sidebar-newsletter">
+                    <h3>Get Cooking Tips</h3>
+                    <p>Subscribe to get our latest blog posts and cooking tips delivered to your inbox.</p>
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit">Subscribe</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>CookYum</h3>
+                    <p>Making cooking fun, fast, and tasty for everyone. Quick recipes for busy people and beginners.</p>
+                    <div style="margin-top: 15px;">
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow); margin-right: 10px;"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" style="color: var(--yummy-yellow);"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Recipe Categories</h3>
+                    <ul>
+                        <li><a href="#">5-Minute Recipes</a></li>
+                        <li><a href="#">10-Minute Meals</a></li>
+                        <li><a href="#">3-Ingredient Wonders</a></li>
+                        <li><a href="#">Easy Breakfasts</a></li>
+                        <li><a href="#">Quick Lunches</a></li>
+                        <li><a href="#">Simple Dinners</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Yum Street, Foodville, FC 12345</p>
+                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> (123) 456-7890</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> help@cookyum.com</p>
+                    
+                    <h3 style="margin-top: 20px;">Customer Satisfaction</h3>
+                    <p>Your satisfaction is our top priority. If you have any questions or feedback about our recipes or website, please don't hesitate to contact us.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 CookYum. All Rights Reserved. "Quick. Easy. Yummy." and "Good Food, No Fuss." are trademarks of CookYum.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
